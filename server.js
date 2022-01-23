@@ -35,5 +35,6 @@ app.get("/physicians", (req, res) => {
 
 // GET an appointment
 app.get("/appointments", (req, res) => {
+  console.log({ req, res })
   res.send({ express: appointments });
 });

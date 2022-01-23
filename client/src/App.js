@@ -5,18 +5,29 @@ class App extends Component {
   state = {
     physicians: [],
     appointments: [],
-    selectedPhysician: '',
+    selectedPhysician: {},
   };
 
   componentDidMount() {
-    this.fetchData()
+    this.fetchPhysicians()
       .then((res) =>
-        this.setState({ physicians: res.express, selectedPhysician: res.express[0].name })
+        this.setState({
+          physicians: res.express,
+          selectedPhysician: res.express[0],
+        })
+      )
+      .catch((err) => console.log(err));
+
+    this.fetchAppointments(this.state.selectedPhysician.id)
+      .then((res) =>
+        this.setState({
+          appointments: res.express,
+        })
       )
       .catch((err) => console.log(err));
   }
 
-  fetchData = async () => {
+  fetchPhysicians = async () => {
     const response = await fetch("/physicians");
     const body = await response.json();
 
@@ -25,9 +36,18 @@ class App extends Component {
     return body;
   };
 
+  fetchAppointments = async (id) => {
+    const response = await fetch("/appointments", { id });
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
   render() {
-    const { physicians, selectedPhysician } = this.state;
-    console.log({ selectedPhysician });
+    const { physicians, selectedPhysician, appointments } = this.state;
+    console.log({ selectedPhysician, appointments });
     return (
       <div className="App">
         <div className="left-container">
@@ -40,7 +60,7 @@ class App extends Component {
           </ul>
         </div>
         <div className="right-container">
-          <h1>{selectedPhysician}</h1>
+          <h1>{selectedPhysician.name}</h1>
         </div>
       </div>
     );
