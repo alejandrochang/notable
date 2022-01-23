@@ -1,0 +1,22 @@
+{
+  "name": "notable",
+  "version": "1.0.0",
+  "description": "Notable Take Home Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandrochang/notable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejandrochang/notable/issues"
+  },
+  "homepage": "https://github.com/alejandrochang/notable#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

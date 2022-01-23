@@ -1,0 +1,35 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+  background-color: lightgray;
+  padding: 25px;
+}
+
+.right-container {
+  height: 100%;
+  width: 70%;
+  background-color: #ffffff;
+  padding: 25px;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-style: bold;
+}
+
+h3 {
+  color: #337EDD;
+}
